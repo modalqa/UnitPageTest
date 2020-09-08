@@ -1,0 +1,24 @@
+import { Role, Selector } from 'testcafe';
+
+fixture `fixture`;
+
+const facebookAccUser = Role('https://www.facebook.com/login.php?skip_api_login=1&api_key=176613702824432&kid_directed_site=0&app_id=176613702824432&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fv5.0%2Fdialog%2Foauth%3F%2B%2B%2B%2B%2B%2Bclient_id%3D176613702824432%26display%3Dpopup%26response_type%3Dgranted_scopes%26%2B%2B%2B%2B%2B%2Bredirect_uri%3Dhttps%253A%252F%252Fwww.tiket.com%252Flogin%26auth_type%3Drerequest%26%2B%2B%2B%2B%2B%2Bscope%3Demail%252Cpublic_profile%26state%3Dundefined%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D0e680ec5-997d-4888-a921-114840dce180&cancel_url=https%3A%2F%2Fwww.tiket.com%2Flogin%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3Dundefined%23_%3D_&display=popup&locale=id_ID&pl_dbl=0', async t => {
+    await t
+        .typeText('#email', 'fariskurniaadi@gmail.com', { replace: true })
+        .typeText('#pass', 'cermat123', { replace: true })
+        .click(Selector('#loginbutton'))
+        .wait(3000)
+        // .click(Selector('button').withText('Continue as Samuel'))
+        // .wait(3000)
+});
+
+test('test', async t => {
+    await t
+        .maximizeWindow()
+        .navigateTo('https://www.tiket.com/login')
+        .useRole(facebookAccUser)
+        .navigateTo('https://www.tiket.com/hotel')
+        .typeText('#destination-input','bogor')
+        .wait(3000)
+        .debug(); //check successful login
+});
