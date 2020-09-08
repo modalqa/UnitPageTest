@@ -56,11 +56,3 @@ fixture `Test Unit`
         .wait(300)
     });
 
-    test('View detail list', async t => {
-        await t
-        .maximizeWindow()
-        .wait(200)
-        .click(Selector("title").withText("RoomMe Antene Radio Dalam 9"))
-        .expect(Selector('h2 room-type-title.mb-0').textContent).contains('Comfort Trundle Bed')
-        .wait(300)
-    });
