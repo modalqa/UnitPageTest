@@ -5,14 +5,14 @@ git clone https://github.com/modalqa/UnitPageTest.git
 
 ### API
 
-The path & install with : 
+The Folder & install with : 
 
 ```
 API/npm install
 ```
 ### UI
 
-The path & install with : 
+The Folder & install with : 
 
 ```
 UI/npm install
